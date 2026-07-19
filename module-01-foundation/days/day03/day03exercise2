@@ -1,0 +1,8 @@
+grocery = {
+    "Milk": 80,
+    "Bread": 50,
+    "Rice": 120,
+    "Eggs": 15,
+    "Sugar": 100 }
+for item, price in grocery.items():
+    print(f"{item}: {price} ETB")

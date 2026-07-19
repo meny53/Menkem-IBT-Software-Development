@@ -1,0 +1,4 @@
+cities = ["Addis Ababa", "London", "Paris", "Addis Ababa", "London", "Tokyo"]
+unique_cities = set(cities)
+print(unique_cities)
+print(len(unique_cities))
