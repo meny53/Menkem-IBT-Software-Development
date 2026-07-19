@@ -1,14 +1,20 @@
-class Vehicle:
+from abc import ABC, abstractmethod
+class Vehicle(ABC):
     def __init__(self, make, model):
         self.make = make
         self.model = model
     def describe(self):
         print(f"Vehicle: {self.make} {self.model}")
+    @abstractmethod
+    def wheels(self):
+        pass
 class Car(Vehicle):
-    pass
+    def wheels(self):
+        return 4
 class Truck(Vehicle):
-    pass
+    def wheels(self):
+        return 6
 car1 = Car("Toyota", "Corolla")
 truck1 = Truck("Volvo", "FH16")
-car1.describe()
-truck1.describe()
+print(car1.wheels())
+print(truck1.wheels())

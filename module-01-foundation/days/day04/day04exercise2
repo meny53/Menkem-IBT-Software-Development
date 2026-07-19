@@ -1,0 +1,21 @@
+class Product:
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+
+    def restock(self, n):
+        self.quantity += n
+        print(f"{n} {self.name}(s) added to stock.")
+
+    def sell(self, n):
+        if n <= self.quantity:
+            self.quantity -= n
+            print(f"{n} {self.name}(s) sold.")
+        else:
+            print("Not enough stock available.")
+product1 = Product("Laptop", 50000, 10)
+print("Current quantity:", product1.quantity)
+product1.restock(5)
+product1.sell(3)
+print("Remaining quantity:", product1.quantity)

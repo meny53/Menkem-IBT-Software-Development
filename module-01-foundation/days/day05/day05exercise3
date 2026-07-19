@@ -1,0 +1,15 @@
+class Vehicle:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+    def describe(self):
+        print(f"Vehicle: {self.make} {self.model}")
+class Truck(Vehicle):
+    def __init__(self, make, model, capacity):
+        super().__init__(make, model)
+        self.capacity = capacity
+    def describe(self):
+        print(
+            f"Truck: {self.make} {self.model}, Capacity: {self.capacity} tons")
+truck1 = Truck("Volvo", "FH16", 20)
+truck1.describe()

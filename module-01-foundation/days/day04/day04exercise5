@@ -1,0 +1,36 @@
+class Product:
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.__quantity = quantity
+
+    @property
+    def quantity(self):
+        return self.__quantity
+
+    @quantity.setter
+    def quantity(self, value):
+        if value < 0:
+            print("Quantity cannot be negative")
+        else:
+            self.__quantity = value
+
+    def restock(self, n):
+        self.quantity += n
+
+    def sell(self, n):
+        if n <= self.quantity:
+            self.quantity -= n
+        else:
+            print("Not enough stock")
+product1 = Product("Laptop", 50000, 10)
+product2 = Product("Phone", 15000, 20)
+product3 = Product("Tablet", 25000, 15)
+print(product1.name, product1.quantity)
+print(product2.name, product2.quantity)
+print(product3.name, product3.quantity)
+print("----------------")
+product1.sell(5)
+print(product1.name, product1.quantity)
+print(product2.name, product2.quantity)
+print(product3.name, product3.quantity)

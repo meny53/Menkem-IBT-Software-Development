@@ -1,0 +1,12 @@
+class ReportBuilder:
+    def build(self):
+        return "Monthly Sales Report"
+class ReportSaver:
+    def save(self, report):
+        print(f"Saving report: {report}")
+class ReportEmailer:
+    def email(self, report):
+        print(f"Sending email: {report}")
+report = ReportBuilder().build()
+ReportSaver().save(report)
+ReportEmailer().email(report)
