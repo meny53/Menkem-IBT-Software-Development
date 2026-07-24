@@ -1,0 +1,5 @@
+Bread: 20
+Milk: 15
+Eggs: 30
+Sugar: 10
+Rice: 25
