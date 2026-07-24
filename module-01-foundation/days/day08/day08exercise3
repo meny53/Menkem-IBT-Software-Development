@@ -1,0 +1,20 @@
+def merge(left, right):
+    result = []
+    while left and right:
+        if left[0] < right[0]:
+            result.append(left.pop(0))
+        else:
+            result.append(right.pop(0))
+    result.extend(left)
+    result.extend(right)
+    return result
+def merge_sort(items):
+    if len(items) <= 1:
+        return items
+    middle = len(items) // 2
+    left = merge_sort(items[:middle])
+    right = merge_sort(items[middle:])
+    return merge(left, right)
+numbers = [8, 3, 6, 2, 7, 1, 5]
+print("Merge Sort:", merge_sort(numbers))
+print("Python Sort:", sorted(numbers))

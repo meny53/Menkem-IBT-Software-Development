@@ -1,0 +1,7 @@
+accounts = [
+    ("Sam", 800),
+    ("John", 1200),
+    ("Sara", 500),
+    ("Mike", 1000)]
+sorted_accounts = sorted(accounts, key=lambda account: account[1], reverse=True)
+print(sorted_accounts)

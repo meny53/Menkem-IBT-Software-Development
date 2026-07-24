@@ -1,0 +1,15 @@
+def binary_search(items, target):
+    left = 0
+    right = len(items) - 1
+    while left <= right:
+        middle = (left + right) // 2
+        if items[middle] == target:
+            return middle
+        elif items[middle] < target:
+            left = middle + 1
+        else:
+            right = middle - 1
+    return -1
+balances = [100, 300, 500, 700, 900]
+print(binary_search(balances, 700))
+print(binary_search(balances, 400))
