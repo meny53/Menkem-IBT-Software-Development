@@ -1,0 +1,9 @@
+import heapq
+tasks = []
+heapq.heappush(tasks, (3, "Wash Car"))
+heapq.heappush(tasks, (1, "Study"))
+heapq.heappush(tasks, (5, "Watch TV"))
+heapq.heappush(tasks, (2, "Exercise"))
+heapq.heappush(tasks, (4, "Shopping"))
+while tasks:
+    print(heapq.heappop(tasks))
