@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Habesha Eatery reservation page with menu and restaurant information.">
+    <title>Habesha Eatery | Reservation</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Habesha Eatery</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home / Reservation</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!--
+        Using POST because reservation information is sensitive
+        and should not appear in the browser URL.
+        -->
+
+        <section>
+            <h2>Reserve a Table</h2>
+
+            <form action="#" method="post">
+
+                <label for="fullname">Full Name:</label><br>
+                <input
+                    type="text"
+                    id="fullname"
+                    name="fullname"
+                    required>
+
+                <br><br>
+
+                <label for="email">Email Address:</label><br>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required>
+
+                <br><br>
+
+                <label for="phone">Phone Number:</label><br>
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    pattern="^\+2519\d{8}$"
+                    placeholder="+251912345678"
+                    required>
+
+                <br><br>
+
+                <label for="guests">Number of Guests:</label><br>
+                <input
+                    type="number"
+                    id="guests"
+                    name="guests"
+                    min="1"
+                    max="20"
+                    required>
+
+                <br><br>
+
+                <label for="date">Reservation Date:</label><br>
+                <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    required>
+
+                <br><br>
+
+                <button type="submit">Reserve Table</button>
+
+            </form>
+        </section>
+
+        <hr>
+
+        <section>
+
+            <h2>Habesha Eatery Menu</h2>
+
+            <table border="1">
+
+                <caption>Traditional Ethiopian Dishes</caption>
+
+                <thead>
+                    <tr>
+                        <th scope="col">Dish</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price (ETB)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Doro Wat</td>
+                        <td>Spicy chicken stew served with injera.</td>
+                        <td>450</td>
+                    </tr>
+
+                    <tr>
+                        <td>Kitfo</td>
+                        <td>Minced seasoned beef served with ayib.</td>
+                        <td>500</td>
+                    </tr>
+
+                    <tr>
+                        <td>Tibs</td>
+                        <td>Fried beef with onions and peppers.</td>
+                        <td>420</td>
+                    </tr>
+
+                    <tr>
+                        <td>Shiro</td>
+                        <td>Ground chickpea stew served with injera.</td>
+                        <td>280</td>
+                    </tr>
+
+                    <tr>
+                        <td>Beyaynetu</td>
+                        <td>Mixed vegetarian platter.</td>
+                        <td>350</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <hr>
+
+        <section>
+
+            <h2>Discover Ethiopia</h2>
+
+            <figure>
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/62/Lalibela%2C_Bete_Giyorgis.jpg"
+                    alt="The Rock-Hewn Church of Saint George in Lalibela, Ethiopia"
+                    width="500">
+
+                <figcaption>
+                    The Rock-Hewn Church of Saint George in Lalibela, one of Ethiopia's UNESCO World Heritage Sites.
+                </figcaption>
+
+            </figure>
+
+            <h3>Restaurant Location</h3>
+
+            <iframe
+                src="https://www.google.com/maps?q=Bole+Road+Addis+Ababa&output=embed"
+                width="600"
+                height="400"
+                title="Map showing the location of Habesha Eatery on Bole Road, Addis Ababa">
+            </iframe>
+
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2026 Habesha Eatery. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1 - CSS Variables</title>
+
+    <style>
+
+        :root {
+            --primary-color: #006400;
+            --text-color: #ffffff;
+            --spacing: 16px;
+            --font-stack: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: var(--spacing);
+            font-family: var(--font-stack);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Habesha Eatery</h1>
+
+    <button>Reserve Table</button>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!--
+Using POST because registration information is sensitive
+and should not appear in the URL.
+-->
+
+<form action="#" method="post">
+
+    <label for="fullname">Full Name:</label><br>
+    <input
+        type="text"
+        id="fullname"
+        name="fullname"
+        required>
+    <br><br>
+
+    <label for="email">Email Address:</label><br>
+    <input
+        type="email"
+        id="email"
+        name="email"
+        required>
+    <br><br>
+
+    <label for="phone">Telephone:</label><br>
+    <input
+        type="tel"
+        id="phone"
+        name="phone"
+        pattern="^\+2519\d{8}$"
+        placeholder="+251912345678"
+        required>
+    <br><br>
+
+    <label for="branch">Preferred Branch:</label><br>
+    <select id="branch" name="branch" required>
+        <option value="">-- Select Branch --</option>
+        <option value="bole">Bole</option>
+        <option value="kazanchis">Kazanchis</option>
+        <option value="piassa">Piassa</option>
+    </select>
+    <br><br>
+
+    <button type="submit">Register</button>
+
+</form>

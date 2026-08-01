@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 5 - Color Conversion</title>
+
+    <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+        }
+
+        /*
+        HEX PALETTE
+        Green: #006400
+        Gold:  #FFD700
+        Red:   #8B0000
+
+        RGB EQUIVALENTS
+        Green: rgb(0, 100, 0)
+        Gold:  rgb(255, 215, 0)
+        Red:   rgb(139, 0, 0)
+
+        HSL EQUIVALENTS
+        Green: hsl(120, 100%, 20%)
+        Gold:  hsl(51, 100%, 50%)
+        Red:   hsl(0, 100%, 27%)
+        */
+
+        .color-box {
+            width: 220px;
+            padding: 20px;
+            margin: 15px 0;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .green {
+            background-color: hsl(120, 100%, 20%);
+        }
+
+        .green:hover {
+            background-color: hsl(120, 100%, 35%);
+        }
+
+        .gold {
+            background-color: hsl(51, 100%, 50%);
+            color: black;
+        }
+
+        .gold:hover {
+            background-color: hsl(51, 100%, 65%);
+        }
+
+        .red {
+            background-color: hsl(0, 100%, 27%);
+        }
+
+        .red:hover {
+            background-color: hsl(0, 100%, 42%);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Three-Color Palette</h2>
+
+    <div class="color-box green">
+        Green
+    </div>
+
+    <div class="color-box gold">
+        Gold
+    </div>
+
+    <div class="color-box red">
+        Dark Red
+    </div>
+
+    <p>
+        Move your mouse over each color box to see the lighter
+        HSL hover shade. Only the <strong>lightness</strong> value
+        has been changed.
+    </p>
+
+</body>
+</html>

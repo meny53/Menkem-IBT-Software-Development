@@ -1,0 +1,33 @@
+<section>
+
+    <h2>Accessibility Improvements</h2>
+
+    <!--
+    Fix 1:
+    Replaced a div with a real button.
+    Screen readers recognize it as a button, and keyboard users can activate it using Enter or Space.
+    -->
+    <button type="button">Click Me</button>
+
+    <br><br>
+
+    <!--
+    Fix 2:
+    Added a label connected to the input.
+    Screen readers announce the purpose of the input field.
+    -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+
+    <br><br>
+
+    <!--
+    Fix 3:
+    Added meaningful alt text.
+    Screen readers can describe the image to users who cannot see it.
+    -->
+    <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/62/Lalibela%2C_Bete_Giyorgis.jpg"
+        alt="Historic Rock-Hewn Church of Saint George in Lalibela">
+
+</section>

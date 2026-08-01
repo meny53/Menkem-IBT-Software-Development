@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3 - CSS Specificity</title>
+
+    <style>
+
+        p {
+            color: blue;
+        }
+
+        .important {
+            color: green;
+        }
+
+        #special {
+            color: red;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h2>CSS Specificity Example</h2>
+
+    <p id="special" class="important">
+        This paragraph is targeted by an element selector,
+        a class selector and an ID selector.
+    </p>
+
+    <h3>Explanation</h3>
+
+    <ul>
+        <li><strong>Element selector (p)</strong> → Specificity: 0-0-1</li>
+        <li><strong>Class selector (.important)</strong> → Specificity: 0-1-0</li>
+        <li><strong>ID selector (#special)</strong> → Specificity: 1-0-0</li>
+    </ul>
+
+    <p>
+        <strong>Winner:</strong> The ID selector (<code>#special</code>)
+        because it has the highest specificity score.
+    </p>
+
+</body>
+</html>

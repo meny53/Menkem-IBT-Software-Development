@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2 - Box Sizing</title>
+
+    <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 30px;
+        }
+
+        .content-box {
+            width: 300px;
+            padding: 24px;
+            border: 2px solid black;
+            box-sizing: content-box;
+            background-color: lightblue;
+            margin-bottom: 30px;
+        }
+
+        .border-box {
+            width: 300px;
+            padding: 24px;
+            border: 2px solid black;
+            box-sizing: border-box;
+            background-color: lightgreen;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Content Box</h2>
+
+    <div class="content-box">
+        Width: 300px<br>
+        Padding: 24px<br>
+        Border: 2px
+    </div>
+
+    <p>
+        Rendered width = 300 + 24 + 24 + 2 + 2 = <strong>352px</strong>
+    </p>
+
+    <hr>
+
+    <h2>Border Box</h2>
+
+    <div class="border-box">
+        Width remains exactly <strong>300px</strong> because of
+        <code>box-sizing: border-box;</code>
+    </div>
+
+</body>
+</html>
