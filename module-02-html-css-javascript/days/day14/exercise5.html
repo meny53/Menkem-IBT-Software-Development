@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+
+            padding: 50px;
+        }
+
+        .product-card {
+            position: relative;
+
+            width: 300px;
+
+            padding: 20px;
+
+            border: 1px solid #ddd;
+            border-radius: 10px;
+
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .sale-badge {
+            position: absolute;
+
+            top: -15px;
+            right: -15px;
+
+            width: 70px;
+            height: 70px;
+
+            border-radius: 50%;
+
+            background-color: red;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .product-card button {
+            margin-top: 15px;
+
+            padding: 10px 20px;
+
+            border: none;
+            border-radius: 5px;
+
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="product-card">
+
+        <div class="sale-badge">
+            ETB Sale
+        </div>
+
+        <img
+            src="https://picsum.photos/300/200"
+            alt="Product"
+        >
+
+        <h2>Product Name</h2>
+
+        <p>Beautiful product available now.</p>
+
+        <strong>ETB 1,500</strong>
+
+        <br>
+
+        <button>
+            Add to Cart
+        </button>
+
+    </div>
+
+</body>
+</html>

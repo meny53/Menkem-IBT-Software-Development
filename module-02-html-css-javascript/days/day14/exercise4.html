@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Page Grid</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .page {
+            min-height: 100vh;
+
+            display: grid;
+
+            grid-template-columns: 200px 1fr;
+
+            grid-template-rows: 100px 1fr 80px;
+
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+        }
+
+        header {
+            grid-area: header;
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        aside {
+            grid-area: sidebar;
+            background-color: lightgray;
+            padding: 20px;
+        }
+
+        main {
+            grid-area: main;
+            padding: 20px;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        @media (max-width: 700px) {
+
+            .page {
+                grid-template-columns: 1fr;
+
+                grid-template-rows: auto;
+
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header>
+            <h1>My Website</h1>
+        </header>
+
+        <aside>
+            <h2>Sidebar</h2>
+            <p>Menu item 1</p>
+            <p>Menu item 2</p>
+            <p>Menu item 3</p>
+        </aside>
+
+        <main>
+            <h2>Main Content</h2>
+            <p>This is the main content.</p>
+        </main>
+
+        <footer>
+            <p>Copyright 2026</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

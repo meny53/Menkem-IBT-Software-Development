@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ethio Telecom Dashboard</title>
+
+    <style>
+
+        /* =========================
+           GENERAL STYLES
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+
+        /* =========================
+           GRID PAGE SKELETON
+        ========================= */
+
+        .page {
+            min-height: 100vh;
+
+            display: grid;
+
+            grid-template-columns: 220px 1fr;
+
+            grid-template-rows: 80px 1fr 60px;
+
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            grid-area: header;
+
+            background-color: #00843d;
+
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 30px;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .profile {
+            background-color: white;
+            color: #00843d;
+
+            padding: 8px 15px;
+
+            border-radius: 20px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        aside {
+            grid-area: sidebar;
+
+            background-color: white;
+
+            padding: 25px 15px;
+
+            position: sticky;
+            top: 80px;
+
+            height: calc(100vh - 80px);
+
+            overflow-y: auto;
+        }
+
+        .sidebar-title {
+            font-size: 14px;
+            color: #777;
+
+            margin-bottom: 20px;
+        }
+
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .sidebar-menu a {
+            padding: 12px 15px;
+
+            text-decoration: none;
+
+            color: #333;
+
+            border-radius: 6px;
+        }
+
+        .sidebar-menu a:hover {
+            background-color: #e8f5ee;
+            color: #00843d;
+        }
+
+        .sidebar-menu .active {
+            background-color: #00843d;
+            color: white;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        main {
+            grid-area: main;
+
+            padding: 30px;
+
+            min-width: 0;
+        }
+
+        .page-title {
+            margin-bottom: 25px;
+        }
+
+        .page-title h1 {
+            margin-bottom: 5px;
+        }
+
+        .page-title p {
+            color: #777;
+        }
+
+
+        /* =========================
+           FLEXBOX STAT CARDS
+        ========================= */
+
+        .stats {
+            display: flex;
+
+            gap: 20px;
+
+            margin-bottom: 30px;
+
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            flex: 1;
+
+            min-width: 200px;
+
+            background-color: white;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-card h3 {
+            margin-top: 0;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+        .stat-card .number {
+            font-size: 28px;
+
+            font-weight: bold;
+
+            color: #00843d;
+        }
+
+
+        /* =========================
+           RESPONSIVE CARD GRID
+        ========================= */
+
+        .section-title {
+            margin-bottom: 15px;
+        }
+
+        .services {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: white;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+            text-align: center;
+        }
+
+        .service-card .icon {
+            font-size: 35px;
+
+            margin-bottom: 10px;
+        }
+
+        .service-card h3 {
+            margin: 10px 0;
+        }
+
+        .service-card p {
+            color: #777;
+        }
+
+        .service-card button {
+            padding: 10px 20px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            background-color: #00843d;
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            grid-area: footer;
+
+            background-color: #333;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 15px;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .page {
+                grid-template-columns: 1fr;
+
+                grid-template-rows: 70px auto 1fr 60px;
+
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+
+
+            header {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .navbar a {
+                display: none;
+            }
+
+
+            aside {
+                position: static;
+
+                height: auto;
+
+                padding: 10px;
+            }
+
+            .sidebar-menu {
+                flex-direction: row;
+
+                overflow-x: auto;
+            }
+
+            .sidebar-menu a {
+                white-space: nowrap;
+            }
+
+
+            main {
+                padding: 20px;
+            }
+
+
+            .stats {
+                flex-direction: column;
+            }
+
+            .stat-card {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         PAGE CONTAINER
+    ========================== -->
+
+    <div class="page">
+
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header>
+
+            <div class="logo">
+                Ethio Telecom
+            </div>
+
+            <nav class="navbar">
+
+                <a href="#">Home</a>
+
+                <a href="#">Services</a>
+
+                <a href="#">Support</a>
+
+                <div class="profile">
+                    My Account
+                </div>
+
+            </nav>
+
+        </header>
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside>
+
+            <div class="sidebar-title">
+                CUSTOMER DASHBOARD
+            </div>
+
+            <div class="sidebar-menu">
+
+                <a href="#" class="active">
+                    Dashboard
+                </a>
+
+                <a href="#">
+                    My Profile
+                </a>
+
+                <a href="#">
+                    My Balance
+                </a>
+
+                <a href="#">
+                    Packages
+                </a>
+
+                <a href="#">
+                    Payments
+                </a>
+
+                <a href="#">
+                    Settings
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main>
+
+            <div class="page-title">
+
+                <h1>
+                    Welcome Back
+                </h1>
+
+                <p>
+                    Manage your telecom services from one place.
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 STAT CARDS
+            ========================== -->
+
+            <div class="stats">
+
+                <div class="stat-card">
+
+                    <h3>
+                        Account Balance
+                    </h3>
+
+                    <div class="number">
+                        450 ETB
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Data Balance
+                    </h3>
+
+                    <div class="number">
+                        8.5 GB
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        Voice Minutes
+                    </h3>
+
+                    <div class="number">
+                        350 Min
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <h3>
+                        SMS Balance
+                    </h3>
+
+                    <div class="number">
+                        120 SMS
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 SERVICES
+            ========================== -->
+
+            <h2 class="section-title">
+                Popular Services
+            </h2>
+
+
+            <div class="services">
+
+
+                <div class="service-card">
+
+                    <div class="icon">
+                        📱
+                    </div>
+
+                    <h3>
+                        Mobile Packages
+                    </h3>
+
+                    <p>
+                        Browse available voice and data packages.
+                    </p>
+
+                    <button>
+                        View Packages
+                    </button>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        Internet
+                    </h3>
+
+                    <p>
+                        Manage your internet and data services.
+                    </p>
+
+                    <button>
+                        Manage
+                    </button>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="icon">
+                        💳
+                    </div>
+
+                    <h3>
+                        Payments
+                    </h3>
+
+                    <p>
+                        Check your transactions and make payments.
+                    </p>
+
+                    <button>
+                        Payments
+                    </button>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="icon">
+                        🎁
+                    </div>
+
+                    <h3>
+                        Offers
+                    </h3>
+
+                    <p>
+                        Discover the latest offers and promotions.
+                    </p>
+
+                    <button>
+                        Explore
+                    </button>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="icon">
+                        ☎️
+                    </div>
+
+                    <h3>
+                        Support
+                    </h3>
+
+                    <p>
+                        Get help with your account and services.
+                    </p>
+
+                    <button>
+                        Contact
+                    </button>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="icon">
+                        ⚙️
+                    </div>
+
+                    <h3>
+                        Settings
+                    </h3>
+
+                    <p>
+                        Manage your account preferences.
+                    </p>
+
+                    <button>
+                        Settings
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer>
+
+            <p>
+                © 2026 Customer Dashboard — Educational Project
+            </p>
+
+        </footer>
+
+
+    </div>
+
+</body>
+</html>
