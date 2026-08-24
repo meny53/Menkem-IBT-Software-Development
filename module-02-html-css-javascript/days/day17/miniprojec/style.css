@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f3f6f9;
+
+    color: #1f2937;
+}
+
+
+.container {
+    width: 90%;
+
+    max-width: 700px;
+
+    margin: 40px auto;
+}
+
+
+/* Header */
+
+header {
+    text-align: center;
+
+    margin-bottom: 30px;
+}
+
+
+header h1 {
+    color: #00843d;
+
+    margin-bottom: 10px;
+}
+
+
+header p {
+    color: #64748b;
+}
+
+
+/* Sections */
+
+section {
+    background-color: white;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+section h2 {
+    margin-top: 0;
+
+    color: #00843d;
+}
+
+
+/* Balance */
+
+.balance-card {
+    text-align: center;
+
+    background-color: #00843d;
+
+    color: white;
+}
+
+
+.balance-card h2 {
+    color: white;
+}
+
+
+#balance {
+    font-size: 40px;
+
+    font-weight: bold;
+
+    margin: 10px 0;
+}
+
+
+/* Forms */
+
+form {
+    display: flex;
+
+    gap: 10px;
+}
+
+
+input {
+    flex: 1;
+
+    padding: 12px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+
+button {
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: #00843d;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+button:hover {
+    background-color: #006b31;
+}
+
+
+/* Holiday button */
+
+#holidayButton {
+    background-color: #f59e0b;
+
+    width: 100%;
+}
+
+
+#holidayButton:hover {
+    background-color: #d97706;
+}
+
+
+/* Message */
+
+.message-box {
+    text-align: center;
+
+    background-color: #ecfdf5;
+}
+
+
+#message {
+    font-weight: bold;
+
+    margin: 0;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    form {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+
+}

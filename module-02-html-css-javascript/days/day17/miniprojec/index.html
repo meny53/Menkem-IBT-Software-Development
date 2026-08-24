@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TeleBirr Loyalty Points</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>TeleBirr Loyalty Points</h1>
+
+            <p>
+                Earn and redeem points from your TeleBirr purchases.
+            </p>
+        </header>
+
+
+        <!-- Balance -->
+
+        <section class="balance-card">
+
+            <h2>Current Points</h2>
+
+            <p id="balance">0 points</p>
+
+        </section>
+
+
+        <!-- Earn Points -->
+
+        <section>
+
+            <h2>Earn Points</h2>
+
+            <form id="earnForm">
+
+                <input
+                    type="number"
+                    id="spending"
+                    placeholder="Amount spent in ETB"
+                    min="0"
+                >
+
+                <button type="submit">
+                    Earn Points
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Holiday Rule -->
+
+        <section>
+
+            <h2>Holiday Bonus</h2>
+
+            <p>
+                During holidays, customers earn double points.
+            </p>
+
+            <button id="holidayButton">
+                Apply Holiday Rule
+            </button>
+
+        </section>
+
+
+        <!-- Redeem Points -->
+
+        <section>
+
+            <h2>Redeem Points</h2>
+
+            <form id="redeemForm">
+
+                <input
+                    type="number"
+                    id="redeemAmount"
+                    placeholder="Points to redeem"
+                    min="0"
+                >
+
+                <button type="submit">
+                    Redeem Points
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Messages -->
+
+        <section class="message-box">
+
+            <p id="message">
+                Welcome to TeleBirr Loyalty!
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
