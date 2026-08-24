@@ -1,0 +1,43 @@
+ body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        .highlight {
+            color: green;
+            background-color: lightgreen;
+            padding: 10px;
+        }
+
+        .box {
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        .delete-btn {
+            background-color: red;
+            color: white;
+            border: none;
+        }
+
+        input {
+            padding: 8px;
+        }
+   
