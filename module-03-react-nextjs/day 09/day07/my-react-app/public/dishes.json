@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Doro Wot",
+    "price": 400,
+    "category": "Main Course",
+    "image": "/images/doro-wot.jpg",
+    "description": "Rich and spicy traditional Ethiopian chicken stew slow-cooked with berbere spices and served with a boiled egg.",
+    "spicy": true
+  },
+  {
+    "id": 2,
+    "name": "Tibs",
+    "price": 350,
+    "category": "Main Course",
+    "image": "/images/tibs.jpg",
+    "description": "Tender seasoned beef cubes sautéed with onions, rosemary, garlic, and fresh peppers.",
+    "spicy": false
+  },
+  {
+    "id": 3,
+    "name": "Shiro",
+    "price": 250,
+    "category": "Main Course",
+    "image": "/images/shiro.jpg",
+    "description": "Savory slow-simmered chickpea and legume flour stew blended with aromatic spices and herbs.",
+    "spicy": true
+  },
+  {
+    "id": 4,
+    "name": "Azifa",
+    "price": 150,
+    "category": "Side Dish",
+    "image": "/images/azifa.jpg",
+    "description": "Refreshing cold green lentil salad seasoned with diced onions, green chilies, mustard seed, and lime.",
+    "spicy": false
+  },
+  {
+    "id": 5,
+    "name": "Coffee",
+    "price": 100,
+    "category": "Beverage",
+    "image": "/images/coffee.jpg",
+    "description": "Authentic freshly roasted and brewed Ethiopian Arabica coffee served with customary hospitality.",
+    "spicy": false
+  }
+]
