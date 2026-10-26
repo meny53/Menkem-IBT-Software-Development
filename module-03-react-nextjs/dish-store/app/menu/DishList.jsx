@@ -1,0 +1,70 @@
+import Link from "next/link";
+import Image from "next/image";
+import dishes from "../data/Dishes";
+import AddToCartButton from "./AddToCartButton";
+
+export default async function DishList({ dishes: propDishes, selectedCategory }) {
+  const allDishes = propDishes || dishes;
+  const filteredDishes =
+    selectedCategory === "all"
+      ? allDishes
+      : allDishes.filter((dish) => dish.category === selectedCategory);
+
+  return (
+    <section>
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+        {filteredDishes.map((dish) => (
+          <article
+            key={dish.id}
+            className="bg-white border border-stone-200 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+          >
+            <div>
+              {dish.image && (
+                <Image
+                  src={dish.image}
+                  alt={dish.name}
+                  width={400}
+                  height={250}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  className="w-full h-40 object-cover rounded-lg mb-3"
+                />
+              )}
+              <div className="flex items-start justify-between gap-2 mb-2">
+                <h3 className="font-bold text-base text-stone-900">
+                  {dish.name}
+                </h3>
+
+                <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-orange-50 text-orange-600 border border-orange-200 shrink-0">
+                  {dish.category}
+                </span>
+              </div>
+
+              <p className="text-stone-600 text-xs leading-relaxed mb-4">
+                {dish.description}
+              </p>
+            </div>
+
+            <div className="pt-3 border-t border-stone-100 flex items-center justify-between gap-2 mt-auto flex-wrap">
+              <span className="text-base font-bold text-orange-600">
+                {dish.price}{" "}
+                <span className="text-xs font-normal text-stone-500">
+                  ETB
+                </span>
+              </span>
+
+              <div className="flex items-center gap-2">
+                <Link
+                  href={`/menu/${dish.id}`}
+                  className="min-h-[44px] px-4 py-2.5 inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 transition-colors"
+                >
+                  View Details
+                </Link>
+                <AddToCartButton dish={dish} />
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}

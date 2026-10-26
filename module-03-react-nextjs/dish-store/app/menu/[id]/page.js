@@ -1,0 +1,120 @@
+import dishes from "@/app/data/Dishes";
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+
+export function generateStaticParams() {
+  return dishes.map((dish) => ({
+    id: String(dish.id),
+  }));
+}
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const dish = dishes.find((dish) => String(dish.id) === String(id));
+
+  if (!dish) {
+    return {
+      title: "Dish Not Found",
+      description: "The requested dish does not exist.",
+    };
+  }
+
+  const summary = dish.summary || dish.description;
+
+  return {
+    title: `${dish.name} - ${dish.price} ETB`,
+    description: `${dish.name} (${dish.price} ETB): ${summary}`,
+    openGraph: {
+      title: `${dish.name} - ${dish.price} ETB`,
+      description: `${dish.name} (${dish.price} ETB): ${summary}`,
+    },
+  };
+}
+
+export default async function DishDetails({ params }) {
+  const { id } = await params;
+
+  const dish = dishes.find(
+    (dish) => String(dish.id) === String(id)
+  );
+
+  if (!dish) {
+    notFound();
+  }
+
+  const summary = dish.summary || dish.description;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MenuItem",
+    name: dish.name,
+    description: summary,
+    image: dish.image,
+    offers: {
+      "@type": "Offer",
+      price: dish.price,
+      priceCurrency: "ETB",
+    },
+  };
+
+  return (
+    <main className="max-w-xl mx-auto py-4">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <h1 className="text-xl font-bold text-stone-900 mb-4">
+        Dish Details
+      </h1>
+
+      <div className="bg-white border border-stone-200 rounded-2xl p-6 shadow-sm mb-6">
+        <div className="flex items-center justify-between pb-3 mb-3 border-b border-stone-100">
+          <h2 className="text-2xl font-bold text-stone-900">
+            {dish.name}
+          </h2>
+
+          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-orange-50 text-orange-600 border border-orange-200">
+            {dish.category}
+          </span>
+        </div>
+
+        {dish.image && (
+          <Image
+            src={dish.image}
+            alt={dish.name}
+            width={800}
+            height={450}
+            sizes="(max-width: 768px) 100vw, 600px"
+            className="w-full h-64 object-cover rounded-xl mb-6 shadow-sm"
+          />
+        )}
+
+        <p className="text-stone-600 text-sm leading-relaxed mb-6">
+          {dish.description}
+        </p>
+
+        <div className="pt-3 border-t border-stone-100 flex items-baseline justify-between">
+          <span className="text-xs uppercase font-semibold text-stone-400">
+            Price
+          </span>
+
+          <span className="text-2xl font-bold text-orange-600">
+            {dish.price}{" "}
+            <span className="text-sm font-medium text-stone-500">
+              ETB
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <Link
+        href="/menu"
+        className="min-h-[44px] px-5 py-2.5 inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold rounded-lg shadow-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+      >
+        Back to Menu
+      </Link>
+    </main>
+  );
+}

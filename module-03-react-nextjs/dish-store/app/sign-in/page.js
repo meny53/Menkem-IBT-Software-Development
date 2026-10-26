@@ -1,0 +1,67 @@
+import { getSession } from "@/app/lib/session";
+import { signIn, signOut } from "@/app/actions/auth";
+import { AccountSubmitButton, SignOutButton } from "./SignInButtons";
+
+export const dynamic = "force-dynamic";
+
+export const metadata = {
+  title: "Sign In",
+  description: "Sign in to your Habesha Restaurant account to access order history and role-based features.",
+};
+
+export default async function SignInPage({ searchParams }) {
+  const params = await searchParams;
+  const nextDestination = params?.next || "/orders";
+  const session = await getSession();
+
+  return (
+    <div className="max-w-md mx-auto py-10 px-4">
+      <div className="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm space-y-6">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-stone-900">Sign In</h1>
+          <p className="text-xs text-stone-500 mt-1">
+            Destination after login: <span className="font-mono text-orange-600">{nextDestination}</span>
+          </p>
+        </div>
+
+        {session?.user ? (
+          <div className="bg-stone-50 p-4 rounded-xl border border-stone-200 text-center space-y-3">
+            <p className="text-sm text-stone-700">
+              Signed in as <span className="font-bold text-stone-900">{session.user.name}</span>
+            </p>
+            <p className="text-xs text-stone-500">
+              ID: <span className="font-mono">{session.user.id}</span> | Role: <span className="font-mono font-semibold uppercase">{session.user.role}</span>
+            </p>
+            <form action={signOut}>
+              <SignOutButton />
+            </form>
+          </div>
+        ) : null}
+
+        <div className="space-y-3">
+          <p className="text-xs font-semibold text-stone-500 uppercase tracking-wider">
+            Select Account
+          </p>
+
+          <form action={signIn} className="space-y-3">
+            <input type="hidden" name="next" value={nextDestination} />
+            <input type="hidden" name="accountId" value="user-1" />
+            <AccountSubmitButton name="Tehesh" id="user-1" role="customer" />
+          </form>
+
+          <form action={signIn} className="space-y-3">
+            <input type="hidden" name="next" value={nextDestination} />
+            <input type="hidden" name="accountId" value="user-2" />
+            <AccountSubmitButton name="Abebe" id="user-2" role="customer" />
+          </form>
+
+          <form action={signIn} className="space-y-3">
+            <input type="hidden" name="next" value={nextDestination} />
+            <input type="hidden" name="accountId" value="staff-1" />
+            <AccountSubmitButton name="Chef Sara" id="staff-1" role="staff" />
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}

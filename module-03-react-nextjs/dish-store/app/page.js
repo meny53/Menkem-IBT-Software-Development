@@ -1,0 +1,42 @@
+import Link from "next/link";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Home",
+  description: "Welcome to Habesha Restaurant. Explore authentic Ethiopian dishes, savory stews, and traditional dining.",
+};
+
+export default function Home() {
+  return (
+    <section className="flex flex-col items-center justify-center text-center py-12 md:py-20 px-4">
+      <div className="max-w-lg w-full bg-white border border-stone-200 rounded-2xl p-8 shadow-sm">
+        <h1 className="text-orange-600 font-bold text-3xl mb-4">Habesha Restaurant</h1>
+
+        <p className="text-stone-800 font-medium text-lg mb-2">
+          Welcome to Habesha Restaurant.
+        </p>
+
+        <Image
+          src="/images/homePage.png"
+          alt="Habesha Restaurant Ethiopian Feast"
+          width={1200}
+          height={600}
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
+          className="w-full h-64 object-cover rounded-xl mb-6 shadow-sm"
+        />
+
+        <p className="text-stone-600 text-sm leading-relaxed mb-6">
+          Enjoy authentic Ethiopian dishes made with traditional ingredients and spices.
+        </p>
+
+        <Link
+          href="/menu"
+          className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-2.5 rounded-lg shadow-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+        >
+          Explore Our Menu
+        </Link>
+      </div>
+    </section>
+  );
+}
